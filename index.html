@@ -85,10 +85,10 @@
     <div class="main">
         <h1>Until new beginnings</h1>
         <div class="countdown">
-            <div>
+            <!-- <div>
                 <span class="number months"></span>
                 <span>Months</span>
-            </div>
+            </div> -->
             <div>
                 <span class="number days"></span>
                 <span>Days</span>
@@ -111,13 +111,17 @@
     <script>
         // my next birthday
         const newDate = new Date('feb 07 23 23:59:59').getTime()
+        const second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            day = hour * 24;
         const countdown = setInterval(() => {
 
             const date = new Date().getTime()
             const diff = newDate - date
 
-            const month = Math.floor((diff % (1000 * 60 * 60 * 24 * (365.25 / 12) * 365)) / (1000 * 60 * 60 * 24 * (365.25 / 12)))
-            const days = Math.floor(diff % (1000 * 60 * 60 * 24 * (365.25 / 12)) / (1000 * 60 * 60 * 24))
+            //const month = Math.floor((diff % (1000 * 60 * 60 * 24 * (365.25 / 12) * 365)) / (1000 * 60 * 60 * 24 * (365.25 / 12)))
+            const days = Math.floor(diff / (day))
             const hours = Math.floor(diff % (1000 * 60 * 60 * 24) / (1000 * 60 * 60))
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
             const seconds = Math.floor((diff % (1000 * 60)) / 1000)
@@ -126,11 +130,11 @@
             document.querySelector(".minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes
             document.querySelector(".hours").innerHTML = hours < 10 ? '0' + hours : hours
             document.querySelector(".days").innerHTML = days < 10 ? '0' + days : days
-            document.querySelector(".months").innerHTML = month < 10 ? '0' + month : month
+            //document.querySelector(".months").innerHTML = month < 10 ? '0' + month : month
 
             if (diff === 0) {
                 clearInterval(countdown)
-                document.querySelector(".countdown").innerHTML = 'Happy Birthday Ahmed'
+                document.querySelector(".countdown").innerHTML = 'Welcome to India Bujji'
             }
 
         }, 1000)
