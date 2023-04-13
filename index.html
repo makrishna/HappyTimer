@@ -126,11 +126,11 @@
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
             const seconds = Math.floor((diff % (1000 * 60)) / 1000)
 
-            document.querySelector(".seconds").innerHTML = seconds < 10 ? '0' + seconds : seconds
-            document.querySelector(".minutes").innerHTML = minutes < 10 ? '0' + minutes : minutes
-            document.querySelector(".hours").innerHTML = hours < 10 ? '0' + hours : hours
-            document.querySelector(".days").innerHTML = days < 10 ? '0' + days : days
-            //document.querySelector(".months").innerHTML = month < 10 ? '0' + month : month
+            document.querySelector(".seconds").innerHTML = seconds < 10 ? '' + Math.abs(seconds) : seconds
+            document.querySelector(".minutes").innerHTML = minutes < 10 ? '' + Math.abs(minutes) : minutes
+            document.querySelector(".hours").innerHTML = hours < 10 ? '' + Math.abs(hours) : hours
+            document.querySelector(".days").innerHTML = days < 10 ? '' + Math.abs(days) : days
+            //document.querySelector(".months").innerHTML = month < 10 ? '' + month : month
 
             if (diff === 0) {
                 clearInterval(countdown)
